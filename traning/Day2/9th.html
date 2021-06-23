@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>9th</title>
+   
+</head>
+
+<body>
+
+    <button onclick="cloning(this)" style="text-align: center;">new</button> <!-- for creating new menu -->
+    <div></div>
+    <div class="cloneDiv">
+        <!-- div tag for clone -->
+        <button id="sub" onclick="dec(this)">-</button>
+        <input type="text" id="num" class="t">
+        <button id="add" onclick="inc(this)">+</button>
+    </div>
+
+    <script>
+
+        function inc(event) {            //  function for increment value
+            event.parentElement.querySelectorAll('.t')[0].value++;
+
+        }
+
+        function dec(event) {
+
+            //  function for decrement value
+            event.parentElement.querySelectorAll('.t')[0].value--;
+
+        }
+
+
+        function cloning(event) { //  function for make clone 
+            let elem = document.getElementsByClassName("cloneDiv")[0];
+            let clon = elem.cloneNode(true);
+            document.body.appendChild(clon);
+            var totalCloneElem = document.getElementsByClassName('cloneDiv').length;
+            document.getElementsByClassName("cloneDiv")[totalCloneElem - 1].querySelector('#num').value = '';
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

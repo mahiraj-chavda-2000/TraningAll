@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+</head>
+
+<body>
+    <button id="button" onclick="duplicate()">+</button>
+    <form id="myForm" method="POST">
+        <div id="test">
+
+            <input type="submit" value="save">
+        </div>
+
+        <div id="duplicater" class="dupli">            
+            <!-- <input type='hidden' name='id[]' id='id_"+i+"' value="+i+"> -->
+            Number of Members: <input type='text' name='member[]' id='member_'>
+            percentage: <input type='text' name='pr[]' id='pr_'>
+            <button class='a' onclick='del(this)'>-</button>
+        </div>
+    </form>
+
+    <script>
+        var i = 0;
+        var original = document.getElementById('duplicater');
+
+        function duplicate() {
+            var clone = original.cloneNode(true); // "deep" clone
+            clone.id = "duplicater" + ++i;
+            // or clone.id = ""; if the divs don't need an ID
+            // original.parentNode.appendChild(clone);
+            document.body.append(clone);
+            var totalCloneElem = document.getElementsByClassName('dupli').length;
+            document.getElementsByClassName("dupli")[totalCloneElem - 1].querySelector('#member_').value = '';
+            document.getElementsByClassName("dupli")[totalCloneElem - 1].querySelector('#pr_').value = '';
+        }
+        function del(event) {
+
+            event.parentNode.remove();
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

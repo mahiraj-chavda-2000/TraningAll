@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3rd</title>
+</head>
+
+<body>
+    <script>
+        function cal() {
+            var p = document.getElementById('i1').value;
+            var q = document.getElementById('i2').value;
+            document.getElementById("d1").innerHTML = p * q;
+
+        }
+
+
+    </script>
+    <form>
+    Price: <input type="text" name="i1" id="i1"/>
+    X qty.: <input type="text" name="i2" id="i2" onkeyup="cal()"/>
+    
+    </form>
+    <p id="d1">  </p>
+</body>
+
+</html>

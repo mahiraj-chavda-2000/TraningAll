@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10th</title>
+
+
+</head>
+
+
+<body>
+
+
+  <form id="myForm" method="POST">
+    <div id="test">
+      <button id="add" class="a" onclick="inc(this)">+</button>
+      <input type="submit" value="save">
+    </div>
+    <div id="clone" class="MyDiv">
+      Number of Members: <input type="text" name="member[]" id="member" required>
+      percentage: <input type="text" name="pr[]" id="pr" required>
+      <button id="del" class="a" onclick="del(this)">-</button>
+    </div>
+  </form>
+
+
+
+  <script>
+
+    var forms = document.getElementById("myForm");
+    forms.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var data = new FormData();
+      var totalCloneElem = document.getElementsByClassName('MyDiv').length;
+      data.append('member[]', document.getElementsByClassName("MyDiv")[totalCloneElem - 1].querySelector('#member').value);
+      data.append('pr[]', document.getElementsByClassName("MyDiv")[totalCloneElem - 1].querySelector('#pr').value);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '10.php');
+
+
+
+      xhr.onload = function () {
+        console.log(this.response);
+      }
+      xhr.send(data);
+      return false;
+
+
+
+      // console.log("form submited")
+
+
+    });
+
+    function inc(event) {
+      let elem = document.getElementsByClassName("MyDiv")[0];
+      let clon = elem.cloneNode(true);
+      document.body.appendChild(clon);
+      var totalCloneElem = document.getElementsByClassName('MyDiv').length;
+      document.getElementsByClassName("MyDiv")[totalCloneElem - 1].querySelector('#member').value = '';
+      document.getElementsByClassName("MyDiv")[totalCloneElem - 1].querySelector('#pr').value = '';
+    }
+
+    function del(event) {
+      // console.log(event.parentNode.remove());
+      event.parentNode.remove();
+    }
+
+  </script>
+
+</body>
+
+</html>

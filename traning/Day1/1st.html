@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st</title>
+
+</head>
+
+<body>
+
+    <script>
+        function change() {
+            var n1 = document.getElementById('n1');
+            // var n2 = document.getElementById('n2');
+            // n2.value = n1.value;
+            document.getElementById("n2").innerHTML = n1.value;
+        }
+    </script>
+    <input type="text" name="n1" id="n1" onkeyup="change()"/>
+    
+    <p type="text" name="n2" id="n2"> </p>
+
+    <!-- <input type="text" name="n2" id="n2"/> -->
+
+
+
+</body>
+
+</html>

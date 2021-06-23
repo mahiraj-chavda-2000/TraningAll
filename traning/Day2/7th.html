@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <ul id="list1"><li>Coffee</li><li>Tea</li></ul> <!-- list 1 -->
+    <ul id="list2"><li>Water</li><li>Milk</li></ul> <!-- list 2 -->
+
+    <button onclick="add()">Try it</button> <!-- for append the last element of first list to second list -->
+
+    <script>
+      //function of apend element
+      function add() {
+        var itm = document.getElementById("list2").lastChild;
+        var cln = itm.cloneNode(true);
+        document.getElementById("list1").appendChild(cln);
+      }
+    </script>
+
+  </body>
+</html>

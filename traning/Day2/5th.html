@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5th</title>
+    <style>
+        #drop{
+            height: 20px;
+            color: blue;
+        }
+
+        #temprature , #time{
+            padding: 10px;
+            color: rebeccapurple;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <select name="drop" id="drop" onchange="change(this.value)">
+
+        <option value="temp">temprature</option>
+        <option value="time">time</option>
+    </select>
+    <br>
+
+    <div id="temprature" style="display: block;">
+        cel:<input type="text" name="cal" id="i1" onkeyup="convert()"><br>
+        fer:<input type="text" name="fer" id="i2" onkeyup="convert1()"><br>
+    </div>
+
+    <div id="time" style="display: none;">
+        Seconds:<input type="text" name="sec" id="t1" value="3600" onkeyup="timeconv()"><br>
+        Minutes:<input type="text" name="min" id="t2" onkeyup="timeconv1()"><br>
+    </div>
+
+
+    <script>
+        
+        //converting functions
+        function convert() {
+            var c = document.getElementById("i1").value;
+            document.getElementById("i2").value = (c * (9 / 5)) + 32
+
+        }
+
+        function convert1() {
+            var f = document.getElementById("i2").value;
+            document.getElementById("i1").value = (f - 32) * (5 / 9)
+
+        }
+
+        function timeconv() {
+            var s = document.getElementById("t1").value;
+            document.getElementById("t2").value = s / 60;
+
+        }
+
+        function timeconv1() {
+            var m = document.getElementById("t2").value;
+            document.getElementById("t1").value = m * 60;
+
+        }
+        //function to change the drop down
+        function change(value) { 
+            document.getElementById("drop").value;
+            document.getElementById("temprature").style.display = "none";
+            document.getElementById("time").style.display = "block";
+        }
+
+    </script>
+
+</body>
+
+</html>
